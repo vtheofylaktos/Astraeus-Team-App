@@ -10,10 +10,12 @@
     },
     "preview": {
       "distribution": "internal",
-      "node": "20.19.4"
+      "node": "20.19.4",
+      "cache": { "disabled": true }
     },
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "cache": { "disabled": true }
     }
   },
   "submit": {
