@@ -6,22 +6,22 @@
 
 ## 📱 Πώς να κατεβάσεις την εφαρμογή στο κινητό σου (Android)
 
-Κάθε φορά που γίνεται push στο branch `main`, το GitHub Actions χτίζει αυτόματα ένα `.apk` αρχείο που μπορείς να εγκαταστήσεις στο Android κινητό σου.
+Κάθε φορά που γίνεται push στο branch `main`, το GitHub Actions χτίζει αυτόματα ένα `.apk` αρχείο που μπορείς να εγκαταστήσεις στο Android κινητό σου. **Δεν χρειάζεται Play Store, EAS CLI, ή Expo λογαριασμός.**
 
-### Βήμα 1 – Τρέξε το build
+### Βήμα 1 – Ενεργοποίησε το build (μόνο την πρώτη φορά)
 
-Το build τρέχει αυτόματα με κάθε push στο `main`. Μπορείς επίσης να το τρέξεις χειροκίνητα:
+> ℹ️ Τα builds τρέχουν **αυτόματα** με κάθε push στο `main`. Αν το repo είναι φρέσκο ή θες να τρέξεις χειροκίνητα:
 
-1. Πήγαινε στη σελίδα του repository στο GitHub
-2. Κλίκαρε στο **Actions** tab
-3. Επίλεξε το workflow **"Android APK Build"**
-4. Κλίκαρε **"Run workflow"** → **"Run workflow"**
+1. Πήγαινε στη σελίδα του repository στο GitHub: `https://github.com/vtheofylaktos/Astraeus-Team-App`
+2. Κλίκαρε στο **Actions** tab (πάνω μενού)
+3. Επίλεξε το workflow **"Android APK Build"** στα αριστερά
+4. Κλίκαρε **"Run workflow"** (δεξιά) → βεβαιώσου ότι το Branch είναι **`main`** → **"Run workflow"**
 
 ### Βήμα 2 – Κατέβασε το APK
 
-Αφού ολοκληρωθεί επιτυχώς το build (πράσινο ✅):
+Αφού ολοκληρωθεί επιτυχώς το build (πράσινο ✅, ~5-10 λεπτά):
 
-1. Κλίκαρε στο τελευταίο run που ολοκληρώθηκε επιτυχώς
+1. Κλίκαρε στο run που ολοκληρώθηκε
 2. Κάτω στην ενότητα **Artifacts**, κλίκαρε στο **`app-debug`**
 3. Κατεβαίνει ένα `.zip` αρχείο — άνοιξέ το και βρες το αρχείο `.apk`
 
@@ -51,18 +51,18 @@ npx expo start
 
 ## How to Download the App to Your Phone (English)
 
-Every push to `main` triggers a GitHub Actions workflow that builds a `.apk` file you can install on any Android device.
+Every push to `main` triggers a GitHub Actions workflow that builds a `.apk` file you can install on any Android device. **No Play Store, EAS CLI, or Expo account required.**
 
 ### Step 1 – Trigger a build
 
 Builds run automatically on every push to `main`. To trigger manually:
 1. Go to the **Actions** tab in this repository
-2. Select the **"Android APK Build"** workflow
-3. Click **"Run workflow"** → **"Run workflow"**
+2. Select the **"Android APK Build"** workflow on the left
+3. Click **"Run workflow"** (top right) → make sure Branch is **`main`** → **"Run workflow"**
 
 ### Step 2 – Download the APK
 
-Once the build succeeds (green ✅):
+Once the build succeeds (green ✅, ~5-10 minutes):
 1. Click the completed run
 2. Under **Artifacts**, click **`app-debug`**
 3. A `.zip` file downloads — extract it to get the `.apk` file
