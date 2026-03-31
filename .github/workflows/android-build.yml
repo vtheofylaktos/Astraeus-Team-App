@@ -21,18 +21,31 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install Expo CLI
-        run: npm install -g expo-cli eas-cli
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
 
-      - name: Login to Expo (anonymous)
-        run: npx eas whoami || true
+      - name: Build APK on EAS
+        # Authenticates via EXPO_TOKEN, waits for the cloud build to finish,
+        # and writes the build metadata (including the download URL) to
+        # eas-build-output.json.
+        run: npx eas build --platform android --profile production --non-interactive --wait --json > eas-build-output.json
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Build APK
-        run: npx eas build --platform android --profile production --non-interactive
+      - name: Download APK from EAS
+        # Extracts the artifact URL from the JSON output and downloads the APK.
+        run: |
+          BUILD_URL=$(jq -r '.[0].artifacts.buildUrl' eas-build-output.json)
+          if [ -z "$BUILD_URL" ] || [ "$BUILD_URL" = "null" ]; then
+            echo "Error: could not extract buildUrl from eas-build-output.json"
+            cat eas-build-output.json
+            exit 1
+          fi
+          curl -fL -o app-release.apk "$BUILD_URL"
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: dist/*.apk
+          path: app-release.apk
 
