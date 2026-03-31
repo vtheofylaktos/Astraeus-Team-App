@@ -1,5 +1,8 @@
 {
   "expo": {
+    "name": "Astraeus Team App",
+    "slug": "astraeus-team-app",
+    "scheme": "astraeusapp",
     "extra": {
       "eas": {
         "projectId": "f3c036d0-70d8-4552-9c5a-0567d72acaac"
