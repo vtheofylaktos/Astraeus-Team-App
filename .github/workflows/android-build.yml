@@ -28,10 +28,11 @@ jobs:
         run: npx eas whoami || true
 
       - name: Build APK
-        run: npx eas build --platform android --profile production --non-interactive --output=app.apk
+        run: npx eas build --platform android --profile production --non-interactive
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: app.apk
+          path: dist/*.apk
+
